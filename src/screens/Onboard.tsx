@@ -1,6 +1,6 @@
 import { ImageSource } from "expo-image";
 import { useRef, useState } from "react";
-import { Animated, FlatList, StatusBar, View } from "react-native";
+import { Animated, FlatList, SafeAreaView, StatusBar, View } from "react-native";
 import ActionButton from "../components/ActionButton";
 import OnboardItem from "../components/OnboardItem";
 import Paginator from "../components/Paginator";
@@ -54,7 +54,7 @@ export default function Onboard() {
   return (
     <>
       <StatusBar backgroundColor='transparent' translucent barStyle='dark-content' />
-      <View className={`flex-1 pt[${StatusBar.currentHeight || 0}]`}>
+      <SafeAreaView className={`flex-1 pt[${StatusBar.currentHeight || 0}]`}>
         <View style={{ flex: 3 }}>
           <FlatList
             data={slidesData}
@@ -91,7 +91,7 @@ export default function Onboard() {
             <TextSemibold className="text-white text-center text-lg">{slidesData[currentIndex].buttonText}</TextSemibold>
           </ActionButton>
         </View>
-      </View>
+      </SafeAreaView>
     </>
   )
 }
