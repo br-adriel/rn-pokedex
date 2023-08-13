@@ -4,13 +4,12 @@ import ActionButton from './ActionButton'
 import { TextMedium, TextRegular, TextSemibold } from './Text'
 
 interface Props {
-  buttonText: string,
   image: ImageSource,
   title: string,
   description?: string
 }
 
-export default function OnboardItem({ buttonText, image, title, description }: Props) {
+export default function OnboardItem({ image, title, description }: Props) {
   const { width, height } = useWindowDimensions()
 
   return (
