@@ -1,3 +1,5 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { StackScreenProps } from "@react-navigation/stack";
 import { ImageSource } from "expo-image";
 import { useRef, useState } from "react";
 import { Animated, FlatList, SafeAreaView, StatusBar, View } from "react-native";
@@ -5,6 +7,7 @@ import ActionButton from "../components/ActionButton";
 import OnboardItem from "../components/OnboardItem";
 import Paginator from "../components/Paginator";
 import { TextSemibold } from "../components/Text";
+import { RootStackParamsList } from "../types/RootStackParamsList";
 
 type onBoardScreen = {
   buttonText: string,
@@ -31,7 +34,9 @@ const slidesData: onBoardScreen[] = [
   }
 ]
 
-export default function Onboard() {
+type Props = StackScreenProps<RootStackParamsList, 'Onboard'>
+
+export default function Onboard({ navigation }: Props) {
   const scrollX = useRef(new Animated.Value(0)).current
   const slidesRef = useRef<FlatList>(null)
 
@@ -43,11 +48,18 @@ export default function Onboard() {
 
   const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current
 
-  const onButtonPress = () => {
+  const onButtonPress = async () => {
     if (currentIndex < slidesData.length - 1) {
       slidesRef.current?.scrollToIndex({
         index: currentIndex + 1
       })
+    } else {
+      try {
+        await AsyncStorage.setItem('@viewedOnboarding', 'true')
+        navigation.push('Welcome')
+      } catch (err) {
+        console.log('Error @setItem:', err)
+      }
     }
   }
 

@@ -1,10 +1,14 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { StackScreenProps } from '@react-navigation/stack'
 import { SafeAreaView, StatusBar, TouchableOpacity, View } from 'react-native'
 import ActionButton from '../components/ActionButton'
 import OnboardItem from '../components/OnboardItem'
 import { TextMedium, TextSemibold } from '../components/Text'
+import { RootStackParamsList } from '../types/RootStackParamsList'
 
-export default function Welcome() {
+type Props = StackScreenProps<RootStackParamsList, 'Welcome'>
+
+export default function Welcome({ navigation }: Props) {
   return (
     <>
       <StatusBar translucent backgroundColor='transparent' barStyle='dark-content' />
