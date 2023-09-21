@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import './global.css';
 import Loading from './src/screens/Loading';
 import Onboard from './src/screens/Onboard';
+import Pokedex from './src/screens/Pokedex';
 import Welcome from './src/screens/Welcome';
 import { RootStackParamsList } from './src/types/RootStackParamsList';
 
@@ -47,6 +48,7 @@ export default function App() {
         }}>
         <Stack.Screen name='Onboard' component={Onboard} />
         <Stack.Screen name='Welcome' component={Welcome} />
+        <Stack.Screen name='Pokedex' component={Pokedex} />
       </Stack.Navigator>
     </NavigationContainer>
   );
