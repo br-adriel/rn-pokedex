@@ -1,19 +1,20 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { StackScreenProps } from '@react-navigation/stack'
-import { SafeAreaView, StatusBar, TouchableOpacity, View } from 'react-native'
+import { SafeAreaView, TouchableOpacity, View } from 'react-native'
 import ActionButton from '../components/ActionButton'
 import OnboardItem from '../components/OnboardItem'
 import { TextMedium, TextSemibold } from '../components/Text'
 import { RootStackParamsList } from '../types/RootStackParamsList'
+import { StatusBar } from 'expo-status-bar'
 
 type Props = StackScreenProps<RootStackParamsList, 'Welcome'>
 
 export default function Welcome({ navigation }: Props) {
   return (
     <>
-      <StatusBar translucent backgroundColor='transparent' barStyle='dark-content' />
-      <SafeAreaView style={{ paddingTop: (StatusBar.currentHeight || 0) }} className='flex-1'>
-        <TouchableOpacity className='flex-row self-end items-center m-4' activeOpacity={0.7}>
+      <StatusBar backgroundColor='#fff' translucent={false} />
+      <SafeAreaView className='flex-1 bg-white'>
+        <TouchableOpacity className='flex-row self-end items-center m-4' activeOpacity={0.7} onPress={() => navigation.push('Pokedex')}>
           <TextMedium className='text-lg mr-[6]'>Pular</TextMedium>
           <MaterialCommunityIcons name='arrow-right' size={24} />
         </TouchableOpacity>
