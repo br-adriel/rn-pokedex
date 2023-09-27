@@ -14,7 +14,7 @@ export default function Welcome({ navigation }: Props) {
     <>
       <StatusBar backgroundColor='#fff' translucent={false} />
       <SafeAreaView className='flex-1 bg-white'>
-        <TouchableOpacity className='flex-row self-end items-center m-4' activeOpacity={0.7} onPress={() => navigation.push('Pokedex')}>
+        <TouchableOpacity className='flex-row self-end items-center m-4' activeOpacity={0.7} onPress={() => navigation.replace('Pokedex')}>
           <TextMedium className='text-lg mr-[6]'>Pular</TextMedium>
           <MaterialCommunityIcons name='arrow-right' size={24} />
         </TouchableOpacity>
