@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { StatusBar, View } from 'react-native'
+import { View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import SearchInput from '../components/SearchInput'
+import { StatusBar } from 'expo-status-bar'
 
 export default function Pokedex() {
   const [busca, setBusca] = useState('')
