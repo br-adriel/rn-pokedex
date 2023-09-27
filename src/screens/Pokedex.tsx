@@ -16,6 +16,7 @@ export default function Pokedex() {
             value={busca}
             onChangeText={text => setBusca(text)}
             onSubmitEditing={() => { console.log(busca); setBusca('') }}
+            enterKeyHint='search'
           />
         </View>
       </SafeAreaView>
